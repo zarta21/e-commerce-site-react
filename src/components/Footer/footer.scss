@@ -1,0 +1,193 @@
+.footer {
+    background-color: #151515;
+    color: #fff;
+    padding-bottom: 1rem;
+    
+    svg {
+        fill: #fff;
+    }
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        width: 90%;
+        max-width: 1500px;
+        margin: 1rem auto;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 1rem;
+            svg {
+                width: 90px;
+                height: 30px;
+            }
+        }
+
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: flex-start;
+
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        .soc-media {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        }
+    }
+
+    .center {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+        width: 90%;
+        max-width: 1500px;
+        margin: 1rem auto;
+
+        .info {
+            width: 100%;
+            border-bottom: 1px solid #fff;
+
+            .title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+
+                .hide {
+                    display: none;
+                }
+
+                .show {
+                    display: block;
+                }
+            }
+
+            .list {
+                align-items: center;
+                justify-content: flex-start;
+                display: none;
+
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: 1rem;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        width: fit-content;
+                        margin: 0;
+                        padding: .5rem 0;
+                        overflow: hidden;
+                        cursor: pointer;
+                
+                        &:hover {
+                            border-bottom: 1px solid #fff;
+                        }
+                    }
+                }
+            }
+
+            .open ~ .list {
+                display: flex;
+            }
+        }
+
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 90%;
+        max-width: 1500px;
+        margin: 1rem auto;
+
+        .payment-card {
+            span {
+                position: relative;
+        
+                i {
+                    line-height: 0;
+
+                    u {
+                        width: 1px;
+                        height: 1px;
+                        clip: rect(1px, 1px, 1px, 1px);
+                        left: auto;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+
+        .left {
+            flex-basis: 30%;
+            justify-content: flex-end;
+            gap: .5rem;
+
+            .soc-media {
+                margin-top: 1rem;
+                gap: 2rem;
+            }
+        }
+
+        .center {
+            flex-basis: 30%;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            gap: .5rem;
+            width: 100%;
+
+            .info {
+                border-bottom: none;
+                .title {
+                    .icon {
+                        display: none;
+                    }
+                }
+
+                .list {
+                    display: flex;
+
+                    ul {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .right {
+            flex-basis: 30%;
+            align-items: flex-end;
+            justify-content: flex-end;
+            gap: .5rem;
+
+            .copyright {
+                font-size: .75rem
+            }
+        }
+    }
+}
