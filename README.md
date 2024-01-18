@@ -7,11 +7,11 @@ This is e-shop website.
 It includes:
 - Backend API with NodeJS, Express & MongoDB
 - Routes for products
-- React frontend to view, filter and sort products
+- React to frontend to view, filter, and sort products
 - Sass to style elements
 - React Router to navigate
-- Redux and Redux Toolkit for state managment
-- Redux AssyncThynk and Axios to fecth data from MongoDB
+- Redux and Redux Toolkit for state management
+- Redux AssyncThynk and Axios to fetch data from MongoDB
 
 ## Backend Usage
 
