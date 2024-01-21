@@ -1,5 +1,4 @@
 .slider {
-    // height: calc(100vh - 6.25rem);
     width: 100vw;
     position: relative;
     overflow-x: hidden;
@@ -38,7 +37,6 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        // width: fit-content;
         left: 0;
         right: 0;
         top: 50%;
