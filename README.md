@@ -24,6 +24,9 @@ Async Operations:
 - Redux Thunk
 - Axios
 
+Payments:
+- Stripe
+
 ## Project Overview
 
 ### Backend API
@@ -34,6 +37,9 @@ The frontend is developed with React, offering a highly responsive and interacti
 
 ### State Management and Data Fetching
 Redux and Redux Toolkit are used for state management, providing a centralized and efficient way to handle application state. This is especially crucial for managing complex interactions. Redux Thunk and Axios are utilized for asynchronous data fetching from MongoDB. This ensures real-time updates and a snappy user experience by handling data operations
+
+### Secure Payments with Stripe
+Stripe enables users to make payments using various methods, ensuring a smooth transaction experience while prioritizing the security of sensitive financial information.
 
 ## Usage
 
