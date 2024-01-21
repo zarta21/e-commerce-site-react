@@ -3,6 +3,7 @@ import './cart.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearCart, decreaseQuantity, increaseQuantity, removeItem } from '../../redux/cartReducer'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 
 const Cart = ({ open, setOpen }) => {
@@ -24,52 +25,17 @@ const Cart = ({ open, setOpen }) => {
         }
     }
 
-    // const data = [
-    //     {
-    //         id: 1,
-    //         img: "https://img01.ztat.net/article/spp-media-p1/0af71cf7bec54d929fe16147551a8673/54a5bd9d86f445f692a79ffc5954c28a.jpg?imwidth=1800",
-    //         img2: "https://img01.ztat.net/article/spp-media-p1/324b55d63631490dae2111fc969a75d9/270cb9dea3394268ae1fd3f227006587.jpg?imwidth=1800",
-    //         title: "ESSENTIALS 3STRIPES - Tracksuit bottoms",
-    //         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem explicabo rerum ab ratione repudiandae quis laboriosam. Maxime molestias mollitia repudiandae!",
-    //         isNew: true,
-    //         oldPrice: 37.95,
-    //         price: 19.95,
-    //         quantity: 1
-    //     },
-    //     {
-    //         id: 2,
-    //         img: "https://img01.ztat.net/article/spp-media-p1/3ff8b4e109563d26a3789e6457cd5b79/e4326574d9b24d87a76d47e9aedb3058.jpg?imwidth=1800",
-    //         img2: "https://img01.ztat.net/article/spp-media-p1/afa7e003124938d5a8aff3b5bbf96f9e/6236b667c6cf4714b2575ae1103674b4.jpg?imwidth=1800",
-    //         title: "ORIGINAL SLIM FIT - Long sleeved top",
-    //         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem explicabo rerum ab ratione repudiandae quis laboriosam. Maxime molestias mollitia repudiandae!",
-    //         isNew: true,
-    //         oldPrice: 30.99,
-    //         price: 25.00,
-    //         quantity: 1
-    //     },
-    //     {
-    //         id: 3,
-    //         img: "https://img01.ztat.net/article/spp-media-p1/90b82d5578c831c999af4b9cd6c6e652/14590978bc22491ab8cd642faf818654.jpg?imwidth=1800",
-    //         img2: "https://img01.ztat.net/article/spp-media-p1/eae7d1db02d0356db1b8f17c6bab88e9/f03130fe95d94e2dbc2361db7a4aa1c8.jpg?imwidth=1800",
-    //         title: "Jumper",
-    //         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem explicabo rerum ab ratione repudiandae quis laboriosam. Maxime molestias mollitia repudiandae!",
-    //         isNew: true,
-    //         oldPrice: 27.99,
-    //         price: 17.00,
-    //         quantity: 1
-    //     },
-    //     {
-    //         id: 4,
-    //         img: "https://img01.ztat.net/article/spp-media-p1/6e6f9aa504314d99acab97396877a291/49ecbe7d4f2f4339ae4586d6da5f5dea.jpg?imwidth=762",
-    //         img2: "https://img01.ztat.net/article/spp-media-p1/fa4d6d87c55f41aa8dab4c8e52851497/e56e634f5cae4f99af6c7613aae60f12.jpg?imwidth=400",
-    //         title: "LONG SLEEVE SPORT - Shirt",
-    //         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem explicabo rerum ab ratione repudiandae quis laboriosam. Maxime molestias mollitia repudiandae!",
-    //         isNew: false,
-    //         oldPrice: 135.00,
-    //         price: 81.00,
-    //         quantity: 1
-    //     },
-    // ]
+    const makePayment = () => {
+        axios.post("http://localhost:5500/api/checkout/create-checkout-session", {
+            products
+        }).then(res => {
+            if (res.data.url) {
+                window.location.href = res.data.url
+            }
+        }).catch(error => console.log(error.message))
+    }
+
+    
   return (
     <div className='cart' onClick={handleClick}>
         <div className="wrapper">
@@ -114,7 +80,7 @@ const Cart = ({ open, setOpen }) => {
                 <span>€{totalPrice()}</span>
             </div>
             <div className="buttons">
-                <button className='checkout-btn'>checkout</button>
+                <button className='checkout-btn' onClick={makePayment}>checkout</button>
                 <button className='clear-btn' onClick={() => dispatch(clearCart())}>clear cart</button>
             </div>
         </div>
