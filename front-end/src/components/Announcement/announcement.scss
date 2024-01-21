@@ -3,6 +3,10 @@
     color: #f8ffea;
     padding: .2rem;
 
+    svg {
+        fill: #f8ffea;
+    }
+
     .wrapper {
         max-width: 1500px;
         width: 90%;
@@ -15,10 +19,18 @@
             display: flex;
             gap: .5rem;
             align-items: center;
-            // font-size: .5rem;
-    
-            svg {
-                fill: #f8ffea;
+            
+            .icon-container {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+            }
+
+            .message {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
             }
         }
     
