@@ -4,7 +4,6 @@
         flex-direction: column;
         gap: 1rem;
         width: 90%;
-        // width: 90dvw;
         margin: 0 auto;
 
         .left {
@@ -13,12 +12,10 @@
             .filters {
                 display: flex;
                 align-items: center;
-                // justify-content: space-between;
                 flex-wrap: wrap;
                 width: 100%;
                 border-bottom: 1px solid #000;
                 letter-spacing: .7px;
-                // cursor: pointer;
 
                 .title {
                     flex: 100%;
@@ -26,9 +23,18 @@
                     align-items: center;
                     justify-content: space-between;
                     cursor: pointer;
-                    h4 {
-                        margin: .5rem 0;
+                   
+                     .title-container {
+                        display: flex;
+                        align-items: center;
+                        gap: .5rem;
+
+                        h4 {
+                            margin: .5rem 0;
+                            letter-spacing: 1px;
+                        }
                     }
+                
                 
                     .icon {
                         display: flex;
@@ -63,51 +69,6 @@
                         align-items: flex-start;
                         justify-content: center;
                         gap: .5rem;
-
-                        // input[type='range'] {
-                        //     appearance: none;
-                        //     -webkit-appearance: none;
-                        //     background-color: transparent;
-                        //     width: 100%;
-                        //     cursor: grab;
-
-                        //     // Chrome
-                        //     &::-webkit-slider-runnable-track {
-                        //         position: relative;
-                        //         // width: 100%;
-                        //         height: .5rem;
-                        //         background-color: #ccc;
-                        //         border-radius: 8px;
-                        //         -webkit-appearance: none;
-                        //     }
-
-                        //     &::-webkit-slider-thumb {
-                        //         position: relative;
-                        //         appearance: none;
-                        //         background-color: #eee;
-                        //         box-sizing: border-box;
-                        //         border: 1px solid #ccc;
-                        //         border-radius: 10rem;
-                        //         width: 1.2rem;
-                        //         height: 1.2rem;
-                        //         top: 50%;
-                        //         translate: 0 -50%;
-                        //     }
-
-                        //     // Firefox
-                        //     &::-moz-range-progress {
-                        //         height: .5rem;
-                        //         border-radius: 8px;
-                        //         background-color: green;
-                        //     }
-
-                        //     &::-moz-range-track {
-                        //         height: .5rem;
-                        //         border-radius: 8px;
-                        //         background-color: #ccc;
-                        //     }
-
-                        // }
 
                             label {
                                 display: block;
@@ -326,13 +287,19 @@
 
                     .title {
                         cursor: auto;
-                        .icon {
+                        
+                        .title-container {
+                            flex: 1;
+
+                            h4 {
+                                font-size: 1.25rem;
+                            }
+
+                        }
+
+                         .icon {
                             display: none;
                         }
-                    }
-
-                    .filters-container {
-                        display: flex;
                     }
                 }
             }
