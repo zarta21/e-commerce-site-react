@@ -11,7 +11,9 @@ const Products = () => {
 
     const [isOpen, setIsopen] = useState(false)
     const [filters, setFilters] = useState([])
-    const [maxPrice, setMaxprice] = useState(200)
+    const [maxPrice, setMaxPrice] = useState(200)
+    const [minPrice, setMinPrice] = useState(0)
+    const [value, setValue] = useState(maxPrice)
     const [color, setColor] = useState("black")
     const [sort, setSort] = useState("Newest")
     const category = useLocation().pathname.split('/')[2]
@@ -23,6 +25,13 @@ const Products = () => {
     useEffect(() => {
         dispatch(fetchProducts())
     }, [])
+
+     useEffect(() => {
+        if (data.products.length > 0) {
+            setMaxPrice(Math.max(...data.products.filter(item => item.subCategory.includes(`${category}`)).map(product => product.price)))
+            setMinPrice(Math.min(...data.products.filter(item => item.subCategory.includes(`${category}`)).map(product => product.price)))
+        }       
+    }, [category])
     
 
     const categoryDataForFilterBox = () => {
@@ -73,7 +82,7 @@ const Products = () => {
         
         switch (name) {
             case "price":
-                setMaxprice(value);
+                setValue(value);
                 break;
             case "color":                
                 if (value !== "white" || value !== 'multicolor') {
@@ -87,7 +96,7 @@ const Products = () => {
             case "clear":
                 default:
                     setFilters([])
-                    setMaxprice(200)
+                    setValue(maxPrice)
                     setColor("black")
                     resetDropdownMenu()
                     document.querySelectorAll('input[type="radio"]').forEach(item => {
@@ -149,8 +158,8 @@ const Products = () => {
                                 <div className='filter'>
                                     <h5>Price</h5>
                                     <div className="input price">
-                                        <span>0</span>
-                                        <input type="range" min={0} max={200} value={maxPrice} onChange={handleFilters("price")} />
+                                        <span>{minPrice}</span>
+                                        <input type="range" min={minPrice} max={maxPrice} value={value} onChange={handleFilters("price")} />
                                         <span>{maxPrice}</span>
                                     </div>
                                 </div>
