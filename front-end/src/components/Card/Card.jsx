@@ -11,8 +11,8 @@ const Card = ({ item }) => {
                     ? <span className='new'>new</span>
                     : <span className='sale'>Sale %</span>
                 }
-                <img src={item?.img} alt="" className="main-image" />
-                {item.img2 && <img src={item?.img2} alt="" className="second-image" />}
+                <img src={item?.img} alt="" className="main-image" loading='lazy' />
+                {item.img2 && <img src={item?.img2} alt="" className="second-image" loading='lazy' />}
             </div>
             <div className="info">
                 <div className="title">
