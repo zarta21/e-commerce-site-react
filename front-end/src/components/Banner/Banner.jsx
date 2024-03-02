@@ -22,7 +22,7 @@ const Banner = ({ text, bgColor, category }) => {
             </div>
             <div className="left">
                 <Link to={`/products/${category}`}>
-                    <img src={text?.img} alt="accessories" />
+                    <img src={text?.img} alt="accessories" loading='lazy' />
                 </Link>
                 
             </div>
