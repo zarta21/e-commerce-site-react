@@ -48,11 +48,11 @@ const Cart = ({ open, setOpen }) => {
                 </div>
             </div>
             {products?.length === 0 
-                ? <div className="empty-cart"><span>Cart is empty</span><div className="icon"><img src="/icons/empty-cart.png" alt="empty cart" /></div></div>
+                ? <div className="empty-cart"><span>Cart is empty</span><div className="icon"><img src="/icons/empty-cart.png" alt="empty cart" loading='lazy' /></div></div>
                 : products?.map(item => (
                 <div className="item" key={item.id}>
                     <Link to={`/product/${item.id}`} state={{...item}} >
-                        <img src={item.img} alt={item.title} />
+                        <img src={item.img} alt={item.title} loading='lazy' />
                     </Link>
                     <div className="details">
                         <span>{item.brand}</span>
