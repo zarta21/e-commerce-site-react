@@ -54,13 +54,13 @@ const Product = () => {
         <div className="wrapper">
             <div className="left" style={{ width: `${viewWidth *100}vw` }}>
                 <div className="images" style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
-                    <img src={item?.img} alt={item?.title} onClick={(e) => setselectedimg(item?.img)}/>
-                    {item?.img2 && <img src={item?.img2} alt={item?.title} onClick={(e) => setselectedimg(item?.img2)}/>}
-                    {item?.img3 && <img src={item?.img3} alt={item?.title} onClick={(e) => setselectedimg(item?.img3)}/>}
-                    {item?.img4 && <img src={item?.img4} alt={item?.title} onClick={(e) => setselectedimg(item?.img4)}/>}
+                    <img src={item?.img} alt={item?.title} onClick={(e) => setselectedimg(item?.img)} loading='lazy' />
+                    {item?.img2 && <img src={item?.img2} alt={item?.title} onClick={(e) => setselectedimg(item?.img2)} loading='lazy'/>}
+                    {item?.img3 && <img src={item?.img3} alt={item?.title} onClick={(e) => setselectedimg(item?.img3)} loading='lazy'/>}
+                    {item?.img4 && <img src={item?.img4} alt={item?.title} onClick={(e) => setselectedimg(item?.img4)} loading='lazy'/>}
                 </div>
                 <div className="main-image">
-                    <img src={selectedImg} alt={item?.title} />
+                    <img src={selectedImg} alt={item?.title} loading='lazy' />
                 </div>
                 <div className="buttons" style={{ left: `calc(50%/${viewWidth})`}}>
                     <div className="icon" onClick={() => {setCurrentSlide(currentSlide === 0 ? slidesLenght : (prev) => prev - 1)}}>
